@@ -26,7 +26,6 @@ import { filter } from 'rxjs/operators';
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
   imports: [
-    MsalModule,
     RouterOutlet,
     RouterLink,
     MatToolbarModule,

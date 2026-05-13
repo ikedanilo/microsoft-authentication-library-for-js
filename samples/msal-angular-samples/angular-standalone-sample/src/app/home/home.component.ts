@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 
 import { MsalBroadcastService, MsalService } from '@azure/msal-angular';
 import {
@@ -16,12 +16,10 @@ import { filter } from 'rxjs/operators';
     imports: []
 })
 export class HomeComponent implements OnInit {
-  loginDisplay = false;
+  private readonly authService = inject(MsalService);
+  private readonly msalBroadcastService = inject(MsalBroadcastService);
 
-  constructor(
-    private authService: MsalService,
-    private msalBroadcastService: MsalBroadcastService
-  ) {}
+  loginDisplay = false;
 
   ngOnInit(): void {
     this.msalBroadcastService.msalSubject$
